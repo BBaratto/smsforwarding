@@ -21,6 +21,9 @@ namespace SMSForwarding
                 Credentials = new WebCredentials("bruno.baratto@outlook.com", "password")
             };
 
+            // Zoek automatisch de EWS URI op
+            ExchangeService.AutodiscoverUrl("jouw.emailadres@domein.com", RedirectionUrlValidationCallback);
+
             // 2. Configureer Topshelf
             var exitCode = HostFactory.Run(x =>
             {
